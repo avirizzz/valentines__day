@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <link rel="stylesheet" href="/d:/val day/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="valentines" onclick="openEnvelope()">
+            <div class="envelope">
+                <div class="ribbon"></div>
+            </div>
+            <div class="card">
+                <div class="text">Will you be my Valentineee ANUSHKAAAA ❤️❤️❤️</div>
+                <div class="buttons">
+                    <button class="yes" onclick="yesClicked()">Yes</button>
+                    <button class="no" onclick="noClicked()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function openEnvelope() {
+            const valentines = document.querySelector('.valentines');
+            valentines.classList.add('open');
+            valentines.onclick = null; // Disable further clicks to prevent closing
+        }
+
+        function yesClicked() {
+            alert("WOHOOO");
+            window.location.href = "https://example.com";
+        }
+
+        function noClicked() {
+            const noButton = document.querySelector('.no');
+            const yesButton = document.querySelector('.yes');
+            if (noButton.innerText === "No") {
+                noButton.innerText = "PLEASE🥺";
+            } else {
+                let currentFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+                yesButton.style.fontSize = (currentFontSize + 2) + 'px';
+            }
+        }
+    </script>
+</body>
+</html>

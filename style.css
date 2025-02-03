@@ -1,0 +1,158 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f06, #f79);
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+}
+
+.valentines {
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f08080;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope::before, .envelope::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f08080;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope::before {
+    top: 0;
+    left: 0;
+    transform-origin: top;
+    transform: rotateX(0deg);
+}
+
+.envelope::after {
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom;
+    transform: rotateX(0deg);
+}
+
+.envelope .ribbon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 20px;
+    background-color: #d9534f;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.envelope .ribbon::before, .envelope .ribbon::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: #d9534f;
+}
+
+.envelope .ribbon::before {
+    left: -20px;
+}
+
+.envelope .ribbon::after {
+    right: -20px;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eae2b7;
+    width: 270px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.text {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+}
+
+.valentines.open .envelope {
+    transform: translateY(-100px);
+}
+
+.valentines.open .envelope::before {
+    transform: rotateX(180deg);
+}
+
+.valentines.open .envelope::after {
+    transform: rotateX(-180deg);
+}
+
+.valentines.open .card {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button.yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.no {
+    background-color: #f44336;
+    color: white;
+}
